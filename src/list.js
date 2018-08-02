@@ -46,7 +46,7 @@ export default async (
     statusCode: 200,
     headers,
     body: JSON.stringify({
-      prefix: `http://${IMAGE_BUCKET}.s3-website-eu-west-1.amazonaws.com/${OBJECT_PREFIX}`,
+      prefix: `https://${IMAGE_BUCKET}.s3.eu-west-1.amazonaws.com/${OBJECT_PREFIX}`,
 
       images: data.Contents
         .filter(item => item.Size > 0)
