@@ -14,6 +14,7 @@ const extensions = {
   'image/svg+xml': 'svg',
   'image/png': 'png',
   'image/jpeg': 'jpg',
+  'image/gif': 'gif',
 };
 
 const validContentTypes = new Set(Object.keys(extensions));
