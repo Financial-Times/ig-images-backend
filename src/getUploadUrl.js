@@ -2,7 +2,7 @@
 
 import { promisify } from 'bluebird';
 import { S3 } from 'aws-sdk';
-import { authenticate } from './lib/s3o';
+import { authenticate } from './lib/okta';
 import type { LambdaCall } from './types';
 
 const { IMAGE_BUCKET, OBJECT_PREFIX } = process.env;
@@ -23,9 +23,9 @@ const headers = {
 };
 
 const getUploadUrl = async (event: LambdaCall) => {
-  const authenticated = await authenticate(event.queryStringParameters);
+  const authenticated = await authenticate(event);
 
-  if (authenticated !== true) {
+  if (!authenticated) {
     return {
       statusCode: 401,
       headers,
