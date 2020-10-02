@@ -5,16 +5,16 @@ const idTokenVerifier = new OktaJwtVerifier({
   issuer: process.env.OKTA_ISSUER || 'https://ft-test.okta.com/oauth2/aus1kd29jg5LHxiFu357',
 });
 
-export const authenticate = async event => {
-  if(!event.headers || !event.headers.Authorization) {
+export const authenticate = async (event) => {
+  if (!event.headers || !event.headers.Authorization) {
     return false;
   }
-  const token = event.headers.Authorization.split(' ')[1] || '';
+  let token = event.headers.Authorization.split(' ')[1] || '';
   try {
     // it's important to not return immediately
-    const token = await idTokenVerifier.verifyAsPromise(token);
+    token = await idTokenVerifier.verifyAsPromise(token);
     return token;
-    } catch (e) {
+  } catch (e) {
     return false;
   }
 };
