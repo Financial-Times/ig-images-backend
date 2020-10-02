@@ -2,7 +2,7 @@
 
 import { S3 } from 'aws-sdk';
 import { promisify } from 'bluebird';
-import { authenticate } from './lib/s3o';
+import { authenticate } from './lib/okta';
 
 import type { Response } from './types';
 
@@ -19,9 +19,9 @@ const headers = {
 export default async (
   event: Event & { queryStringParameters: { [string]: string } },
 ): Promise<Response> => {
-  const authenticated = await authenticate(event.queryStringParameters);
+  const authenticated = await authenticate(event);
 
-  if (authenticated !== true) {
+  if (!authenticated) {
     return {
       statusCode: 401,
       headers,

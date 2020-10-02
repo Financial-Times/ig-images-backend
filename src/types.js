@@ -17,7 +17,7 @@ export type AsyncLambda = (
 
 export type ValidateOptions = {
   publicKey: string,
-  username: string,
+  idToken: string,
   host: string,
   token: string,
 };
