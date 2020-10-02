@@ -30,9 +30,10 @@
   "scripts": {
     "build": "babel --out-dir dist src",
     "lint": "eslint src",
-    "deploy": "serverless deploy",
-    "deploy:prod": "serverless deploy --stage production",
-    "remove": "serverless remove",
-    "remove:prod": "serverless remove --stage production"
+    "deploy": "yarn run env -- serverless deploy",
+    "deploy:prod": "yarn run env -- serverless deploy --stage production",
+    "env": "env $(cat .env | xargs)",
+    "remove": "yarn run env -- serverless remove",
+    "remove:prod": "yarn run env -- serverless remove --stage production"
   }
 }

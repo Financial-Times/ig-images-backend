@@ -3,17 +3,20 @@ service: ig-images
 frameworkVersion: ">=1.8.0"
 
 provider:
-  deploymentBucket: ${env:DEPLOYMENT_BUCKET}
   name: aws
   runtime: nodejs12.x
-  stage: dev # just a default
+  profile: ${env:AWS_PROFILE}
+  deploymentBucket: ${env:DEPLOYMENT_BUCKET}
   region: eu-west-1
-  role: ${env:AWS_ROLE}
   environment:
     OBJECT_PREFIX: v1/
     IMAGE_BUCKET: ${env:IMAGES_BUCKET}
     OKTA_ISSUER: ${env:OKTA_ISSUER}
     OKTA_CLIENT_ID: ${env:OKTA_CLIENT_ID}
+  tags:
+    teamDL: data.journalism.development@ft.com
+    systemCode: ig-images
+    environment: p
 
 functions:
   list:
