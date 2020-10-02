@@ -13,7 +13,7 @@ provider:
     OBJECT_PREFIX: v1/
     IMAGE_BUCKET: ${env:IMAGES_BUCKET}
     OKTA_ISSUER: ${env:OKTA_ISSUER}
-    OKTA_CLIENT_ID: ${env.OKTA_CLIENT_ID}
+    OKTA_CLIENT_ID: ${env:OKTA_CLIENT_ID}
 
 functions:
   list:
