@@ -8,10 +8,12 @@ provider:
   runtime: nodejs12.x
   stage: dev # just a default
   region: eu-west-1
-  profile: ${env:AWS_PROFILE}
+  role: ${env:AWS_ROLE}
   environment:
     OBJECT_PREFIX: v1/
     IMAGE_BUCKET: ${env:IMAGES_BUCKET}
+    OKTA_ISSUER: ${env:OKTA_ISSUER}
+    OKTA_CLIENT_ID: ${env.OKTA_CLIENT_ID}
 
 functions:
   list:

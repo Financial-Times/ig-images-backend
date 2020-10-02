@@ -30,10 +30,9 @@
   "scripts": {
     "build": "babel --out-dir dist src",
     "lint": "eslint src",
-    "deploy": "yarn run env -- serverless deploy",
-    "deploy:prod": "yarn run env -- serverless deploy --stage production",
-    "env": "OKTA_CLIENT_ID='0oa5qub85rZWw3erx357' OKTA_ISSUER='https://ft.okta.com/oauth2/aus1kd9vpcssdNhdH357'",
-    "remove": "yarn run env -- serverless remove",
-    "remove:prod": "yarn run env -- serverless remove --stage production"
+    "deploy": "serverless deploy",
+    "deploy:prod": "serverless deploy --stage production",
+    "remove": "serverless remove",
+    "remove:prod": "serverless remove --stage production"
   }
 }
