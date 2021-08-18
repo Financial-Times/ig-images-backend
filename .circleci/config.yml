@@ -29,6 +29,6 @@ jobs:
       - deploy:
           name: Maybe deploy
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_BRANCH}" == "main" ]; then
               yarn run deploy:prod
             fi
