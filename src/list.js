@@ -49,8 +49,8 @@ export default async (
       prefix: `http://${IMAGE_BUCKET}.s3-website-eu-west-1.amazonaws.com/${OBJECT_PREFIX}`,
 
       images: data.Contents
-        .filter(item => item.Size > 0)
-        .map(item => item.Key.substring(3)),
+        .filter((item) => item.Size > 0)
+        .map((item) => item.Key.substring(3)),
     }),
   };
 };

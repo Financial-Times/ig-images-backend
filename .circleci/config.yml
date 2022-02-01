@@ -7,28 +7,25 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: project-{{ checksum "yarn.lock" }}
+          key: project-{{ checksum "package-lock.json" }}
       - run:
           name: Install dependencies
-          command: yarn
+          command: npm ci
       - save_cache:
-          key: project-{{ checksum "yarn.lock" }}
+          key: project-{{ checksum "package-lock.json" }}
           paths:
             - node_modules/
       - run:
           name: ESLint
-          command: yarn run eslint -- .
-      # - run:
-      #     name: Flow type-checking
-      #     command: yarn run flow
+          command: npm run eslint -- .
       - run:
           name: Compile src -> dist
-          command: yarn run build
+          command: npm run build
       - store_artifacts:
           path: dist/
       - deploy:
           name: Maybe deploy
           command: |
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              yarn run deploy:prod
+              npm run deploy:prod
             fi
