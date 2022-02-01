@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@babel/runtime": "^7.16.7",
-    "@okta/jwt-verifier": "^1.0.0",
+    "@okta/jwt-verifier": "^2.3.0",
     "aws-sdk": "^2.43.0",
     "axios": "^0.25.0",
     "bluebird": "^3.5.0",
@@ -13,6 +13,7 @@
     "@babel/core": "^7.16.12",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-transform-flow-strip-types": "^7.16.7",
+    "@babel/plugin-transform-react-jsx": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.16.10",
     "@babel/preset-env": "^7.16.11",
     "eslint": "^8.8.0",
@@ -35,5 +36,8 @@
     "env": "env $(cat .env | xargs)",
     "remove": "npm run env -- serverless remove",
     "remove:prod": "npm run env -- serverless remove --stage production"
+  },
+  "volta": {
+    "node": "14.19.0"
   }
 }
