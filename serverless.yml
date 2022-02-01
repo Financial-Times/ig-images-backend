@@ -4,7 +4,7 @@ frameworkVersion: ">=1.8.0"
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   profile: ${env:AWS_PROFILE}
   deploymentBucket: ${env:DEPLOYMENT_BUCKET}
   region: eu-west-1
