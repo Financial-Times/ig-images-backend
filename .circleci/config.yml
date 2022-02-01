@@ -17,7 +17,7 @@ jobs:
             - node_modules/
       - run:
           name: ESLint
-          command: npm run eslint -- .
+          command: npm run lint -- .
       - run:
           name: Compile src -> dist
           command: npm run build
