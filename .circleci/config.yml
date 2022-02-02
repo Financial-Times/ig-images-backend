@@ -3,32 +3,23 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: node:7
+      - image: cimg/node:14.18
     steps:
       - checkout
-      - restore_cache:
-          key: project-{{ checksum "yarn.lock" }}
       - run:
           name: Install dependencies
-          command: yarn
-      - save_cache:
-          key: project-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules/
+          command: npm ci
       - run:
           name: ESLint
-          command: yarn run eslint -- .
-      # - run:
-      #     name: Flow type-checking
-      #     command: yarn run flow
+          command: npm run lint -- .
       - run:
           name: Compile src -> dist
-          command: yarn run build
+          command: npm run build
       - store_artifacts:
           path: dist/
       - deploy:
           name: Maybe deploy
           command: |
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              yarn run deploy:prod
+              npm run deploy:prod
             fi
