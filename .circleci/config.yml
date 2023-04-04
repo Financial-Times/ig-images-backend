@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: cimg/node:14.18
+      - image: cimg/node:18.15.0
     steps:
       - checkout
       - run:
