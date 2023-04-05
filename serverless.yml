@@ -5,7 +5,6 @@ frameworkVersion: ">=3.0.0"
 provider:
   name: aws
   runtime: nodejs18.x
-  profile: ${env:AWS_PROFILE}
   deploymentBucket: ${env:DEPLOYMENT_BUCKET}
   region: eu-west-1
   environment:
