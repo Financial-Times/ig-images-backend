@@ -7,6 +7,8 @@ provider:
   runtime: nodejs18.x
   deploymentBucket: ${env:DEPLOYMENT_BUCKET}
   region: eu-west-1
+  iam:
+    role: arn:aws:iam::027104099916:role/FTApplicationRoleFor_ig-images
   environment:
     OBJECT_PREFIX: v1/
     IMAGE_BUCKET: ${env:IMAGES_BUCKET}
