@@ -1,10 +1,10 @@
 service: ig-images
 
-frameworkVersion: ">=1.8.0"
+frameworkVersion: ">=3.0.0"
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs18.x
   profile: ${env:AWS_PROFILE}
   deploymentBucket: ${env:DEPLOYMENT_BUCKET}
   region: eu-west-1
@@ -28,7 +28,7 @@ functions:
           method: get
           cors:
             origins:
-              - '*'
+              - "*"
             headers:
               - Content-Type
               - X-Amz-Date
@@ -46,7 +46,7 @@ functions:
           method: get
           cors:
             origins:
-              - '*'
+              - "*"
             headers:
               - Content-Type
               - X-Amz-Date

@@ -25,7 +25,7 @@
     "eslint-plugin-react": "^7.28.0",
     "flow-bin": "^0.170.0",
     "flow-typed": "^3.6.1",
-    "serverless": "^3.1.0"
+    "serverless": "^3.29.0"
   },
   "private": true,
   "scripts": {
@@ -38,6 +38,6 @@
     "remove:prod": "npm run env -- serverless remove --stage production"
   },
   "volta": {
-    "node": "14.19.0"
+    "node": "^18"
   }
 }
